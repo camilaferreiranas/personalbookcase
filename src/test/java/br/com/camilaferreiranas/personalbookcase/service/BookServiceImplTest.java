@@ -60,7 +60,7 @@ public class BookServiceImplTest {
 
         assertNotNull(savedBooks);
         assertEquals(1, savedBooks.size());
-        assertEquals(book.getTitle(), savedBooks.get(0).title());
+        assertEquals(book.getTitle(), savedBooks.getFirst().title());
 
         verify(bookRepository, times(1)).save(any(Book.class));
     }
@@ -74,7 +74,7 @@ public class BookServiceImplTest {
 
         assertNotNull(books);
         assertFalse(books.isEmpty());
-        assertEquals(book.getTitle(), books.get(0).title());
+        assertEquals(book.getTitle(), books.getFirst().title());
 
         verify(bookRepository, times(1)).findAll();
     }
